@@ -1,23 +1,33 @@
-import './App.css';
-import React, { useEffect } from 'react';
-import Table from './Table';
-import { CellContext } from './context/CellContext';
-import { useContext } from 'react';
-
+import React from "react";
+import "./App.css";
+import Table from "./Components/Table";
+import Row from "./Components/Row";
+import Cell from "./Components/Cell";
+import Inputs from "./Components/Inputs";
 
 function App() {
+  const [rows, setRows] = React.useState([]);
+  const [columns, setColumns] = React.useState([]);
 
-  const {makeRows, makeColumns, rows, columns} = useContext(CellContext)
+  const makeRows = (number) => {
+    const arr = [];
+    for (let i = 0; i < number; i++) {
+      arr.push(<Row />);
+    }
+    setRows(arr);
+  };
 
-
+  const makeColumns = (number) => {
+    const arr = [];
+    for (let i = 0; i < number; i++) {
+      arr.push(<Cell />);
+    }
+    setColumns(arr);
+  };
 
   return (
-    <div className='App'>
-      <div className="inputs">
-        <input type="number" placeholder='Строк' onChange={(e) => makeRows(e.target.value)} />
-        <input type="number" placeholder='Столбцов' onChange={(e) => makeColumns(e.target.value)} />
-        {/* <input type="number" placeholder='Ближайших элементов' onChange={event => setNearest(event.target.value)} /> */}
-      </div>
+    <div className="App">
+      <Inputs makeRows={makeRows} makeColumns={makeColumns}/>
       <Table rows={rows} columns={columns} />
     </div>
   );
