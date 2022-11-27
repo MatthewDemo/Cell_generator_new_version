@@ -8,7 +8,9 @@ function Cell(props) {
     props.sumRef.current.innerHTML++
   };
 
+  props.arrayOfAllCells.push(objCell.amount)
+
   return <td onClick={onPlus}>{objCell.amount}</td>;
 }
-
+ 
 export default Cell;

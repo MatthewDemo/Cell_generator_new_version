@@ -8,8 +8,9 @@ td {
 }
 
 table {
-  border-spacing: 20px 30px
+  border-spacing: 20px 30px;
 }
+
 
 .inputs {
   text-align: center;

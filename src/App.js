@@ -25,12 +25,15 @@ function App() {
     setColumns(arr);
   };
 
+  const arrayOfAllCells = [] //Массив всех значений ячеек. Прокидывается аж в самый Cell и там пушится
+  // console.log('Все значения ячеек', arrayOfAllCells)
+
   return (
     <div className="App">
       <Inputs makeRows={makeRows} makeColumns={makeColumns}/>
-      <Table rows={rows} columns={columns} />
+      <Table rows={rows} columns={columns} arrayOfAllCells={arrayOfAllCells} />
     </div>
   );
 }
-
+ 
 export default App;
